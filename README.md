@@ -4,15 +4,16 @@
 # AI_Hardware_Project_Template
 
 ## Team Name: 
+Team 8 
 (Enter your team name from Canvas)
 
 ## Team Members:
-- Student 1
-- Student 2
-- Student 3
+- Yimin Gao
+- Shan He
+- Zhenghong Chen
 
 ## Project Title:
-(Enter your project title - be creative)
+PositTune: Design space exploration of mixed-precision posit quantization
 
 ## Project Description:
 (Provide a short description of the problem you're addressing)
