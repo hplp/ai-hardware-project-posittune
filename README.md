@@ -3,7 +3,7 @@
 
 # AI_Hardware_Project
 
-[![image](https://github.com/user-attachments/assets/c1e32d18-407b-4f33-80a3-d79625c49ea1)](https://myuva-my.sharepoint.com/:p:/g/personal/yg9bq_virginia_edu/EbjDJD3vRmFHr43dp7wxsugB0Ji3ZrClOwHXlz48IbN-lg?e=MFvc30)
+https://myuva-my.sharepoint.com/:p:/g/personal/yg9bq_virginia_edu/EbjDJD3vRmFHr43dp7wxsugB0Ji3ZrClOwHXlz48IbN-lg?e=XdtVJc 
 
 ## Team Name: 
 6501_project_group 8 
