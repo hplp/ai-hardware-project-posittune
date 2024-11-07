@@ -3,6 +3,8 @@
 
 # AI_Hardware_Project
 
+![image](https://github.com/user-attachments/assets/c1e32d18-407b-4f33-80a3-d79625c49ea1)
+
 ## Team Name: 
 6501_project_group 8 
 
