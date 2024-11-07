@@ -38,6 +38,5 @@ Languages: Python
 - Evaluate Uniform Post-Training Quantization in various data format on GPT-2 (e.g., FP32, FP16, INT16, INT8, posit<8,1>, posit<8,0>, posit<6,1>)  11/4-11/10
 - Analyze Quantization Sensitivity by Layer/Channel 11/11-11/22
 - Develop a fine-tuning algorithm to find the best quantization scheme which balances the model accuracy and computation cost 11/23-11/29
-- (If time allows) Explore Hardware Development for Posit Arithmetic: Design an energy-efficient, versatile posit arithmetic unit with support for fused MAC operations and configurable bit precision, adaptable in total and regime bitwidth.
-![image](https://github.com/user-attachments/assets/c1e32d18-407b-4f33-80a3-d79625c49ea1)
+- (If time allows) Explore Hardware Development for Posit Arithmetic: Design an energy-efficient, versatile posit arithmetic unit with support for fused MAC operations and configurable bit precision, adaptable in total and regime bitwidth
 
