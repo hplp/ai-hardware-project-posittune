@@ -44,3 +44,5 @@ Languages: Python
 - Develop a fine-tuning algorithm to find the best quantization scheme which balances the model accuracy and computation cost 11/23-11/29
 - (If time allows) Explore Hardware Development for Posit Arithmetic: Design an energy-efficient, versatile posit arithmetic unit with support for fused MAC operations and configurable bit precision, adaptable in total and regime bitwidth
 
+## Milestone Report on 11/26:
+[PositTune Milestone](https://docs.google.com/document/d/1pTAWPl2mSRFma4lOWRw0iVCUqy6DBjIWGkL-NMCtweE/edit?usp=sharing)
