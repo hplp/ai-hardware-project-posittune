@@ -50,9 +50,10 @@ Languages: Python
 [Final Report](https://docs.google.com/document/d/1P3ssoJj-iGFYuIgr8NX16kJbeMJYuJoSXZm8dU3G1Wc/edit?usp=sharing)
 
 Here are the jupyter notebooks we used to benchmark three models with layer-wise adaptive scaling during posit quantization: 
-[GPT2](https://colab.research.google.com/drive/1FIOMbVFmk1wJLa8ySeniGPl5ZKkwioO9?usp=sharing)
-[Yolo](https://colab.research.google.com/drive/1lXEbmaDumhhqBa-TqXaIc0qEOPpt7y0X?usp=sharing)
-[ALBERT](https://colab.research.google.com/drive/1W14j33hOgq_tM71EWNQv63YRhlo8PnWY?usp=sharing)
+
+- [GPT2](https://colab.research.google.com/drive/1FIOMbVFmk1wJLa8ySeniGPl5ZKkwioO9?usp=sharing)
+- [Yolo](https://colab.research.google.com/drive/1lXEbmaDumhhqBa-TqXaIc0qEOPpt7y0X?usp=sharing)
+- [ALBERT](https://colab.research.google.com/drive/1W14j33hOgq_tM71EWNQv63YRhlo8PnWY?usp=sharing)
 
 (All the other codes for this project](https://drive.google.com/drive/folders/1N5s3er1LL_gCWstWVO4nBSjxM2iwgJFw?usp=sharing)
 
