@@ -55,5 +55,5 @@ Here are the jupyter notebooks we used to benchmark three models with layer-wise
 - [Yolo](https://colab.research.google.com/drive/1lXEbmaDumhhqBa-TqXaIc0qEOPpt7y0X?usp=sharing)
 - [ALBERT](https://colab.research.google.com/drive/1W14j33hOgq_tM71EWNQv63YRhlo8PnWY?usp=sharing)
 
-(All the other codes for this project](https://drive.google.com/drive/folders/1N5s3er1LL_gCWstWVO4nBSjxM2iwgJFw?usp=sharing)
+[All the codes we used for this project](https://drive.google.com/drive/folders/1N5s3er1LL_gCWstWVO4nBSjxM2iwgJFw?usp=sharing)
 
