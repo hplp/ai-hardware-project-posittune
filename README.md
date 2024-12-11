@@ -24,9 +24,9 @@ As an example, the figure below shows the weight distribution of the first layer
 ## PositTune Tutorial  
 Here are the code we used to benchmark three models with layer-wise adaptive scaling during posit quantization:  
 
-- **GPT2:** [Notebook](https://colab.research.google.com/drive/1FIOMbVFmk1wJLa8ySeniGPl5ZKkwioO9?usp=sharing)  
-- **YOLO:** [Notebook](https://colab.research.google.com/drive/1lXEbmaDumhhqBa-TqXaIc0qEOPpt7y0X?usp=sharing)  
-- **ALBERT:** [Notebook](https://colab.research.google.com/drive/1W14j33hOgq_tM71EWNQv63YRhlo8PnWY?usp=sharing)  
+- **[GPT2](https://github.com/hplp/ai-hardware-project-posittune/blob/main/GPT2_quantization_mix.ipynb)** 
+- **[YOLO](https://github.com/hplp/ai-hardware-project-posittune/blob/main/POSIT_SCALING_Question_Answering_with_ALBERT_%2B_Posit_.ipynb)**
+- **[ALBERT](https://github.com/hplp/ai-hardware-project-posittune/blob/main/Qtorch_plus_ultralytics_yolov5.ipynb)** 
 
 While the detailed implementation of these posit quantization methods can be found in the original Qtorch paper, the same quantization method is applied in all three benchmarks - The weight and the activation of each layer for the selected model is quantized to posit arithmetic using a predefined quantization function from the qtorch_plus library: `posit_quantize()`. The function allows you to choose the total bitwidth (`nsize`), exponent bitwidth (`es`) and the scaling factor (`scale`) for the quantization process. In each of the three benchmark notebooks, there is a step where the program iterates through all the linear layers of the selected ML model to quantize the weights and the activation using the defined `linear_weight` and `register_forward_prehook` functions.  
 
