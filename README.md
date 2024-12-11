@@ -13,6 +13,7 @@ Qtorch is a Pytorch implementation of posit quantization so we can simulate the 
 Posit is this dynamic numerical representation that has the best accuracy near 1 (2^0), and a wider range compared to floating point of the same bitwidth. As shown in the figure below, floating point arithmetic shows the same level of accuracy across a wide range of numbers. However, this is usually redundant for most of the applications such as an ML inference where most of the weights/activation lie in a relatively small region. Posit, on the other hand, offers a more efficient design by demonstrating better accuracy around 1 and a wider range compared to floating point. There is this sweet spot around 1 where posit outperforms floating point in terms of accuracy and this is usually where we care the most for ML applications. However, what if the weight/activations for certain ML models go out of this region? Our solution is that we could dynamically shift the weights for each layer to where posit is the most accurate.  
 
 As an example, the figure below shows the weight distribution of the first layer of GPT2 model. As we can see, the center bin of the distribution is at 2^(-2.72). To benefit the most from posit arithmetic, we can shift this distribution (in log 2 scale) to the right where the distribution is centered around 1 (where posit is the most accurate), as shown in the following figure.  
+![Weight Distribution of GPT2](https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/distribution.png)
 
 ---
 
