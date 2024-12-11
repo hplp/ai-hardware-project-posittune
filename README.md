@@ -22,7 +22,7 @@ As an example, the figure below shows the weight distribution of the first layer
 ---
 
 ## PositTune Tutorial  
-Here are the jupyter notebooks we used to benchmark three models with layer-wise adaptive scaling during posit quantization:  
+Here are the code we used to benchmark three models with layer-wise adaptive scaling during posit quantization:  
 
 - **GPT2:** [Notebook](https://colab.research.google.com/drive/1FIOMbVFmk1wJLa8ySeniGPl5ZKkwioO9?usp=sharing)  
 - **YOLO:** [Notebook](https://colab.research.google.com/drive/1lXEbmaDumhhqBa-TqXaIc0qEOPpt7y0X?usp=sharing)  
