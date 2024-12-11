@@ -11,9 +11,13 @@ PositTune is a project that explores the design space of mixed-configuration pos
 Qtorch is a Pytorch implementation of posit quantization so we can simulate the accuracy of the posit-quantized ML model without the need of having real posit hardware. The numbers (weights/activation) after quantizing to posit are still floating point in the hardware, but have the same/similar values to posit arithmetic following posit’s equation. However, the limit there is how you could emulate say posit<32,0> since it has a better accuracy than 32-bit floating point. But since we are only implementing low-bitwidth posit quantization such as 8-bit or 4-bit, that’s not a concern to this project.  
 
 Posit is this dynamic numerical representation that has the best accuracy near 1 (2^0), and a wider range compared to floating point of the same bitwidth. As shown in the figure below, floating point arithmetic shows the same level of accuracy across a wide range of numbers. However, this is usually redundant for most of the applications such as an ML inference where most of the weights/activation lie in a relatively small region. Posit, on the other hand, offers a more efficient design by demonstrating better accuracy around 1 and a wider range compared to floating point. There is this sweet spot around 1 where posit outperforms floating point in terms of accuracy and this is usually where we care the most for ML applications. However, what if the weight/activations for certain ML models go out of this region? Our solution is that we could dynamically shift the weights for each layer to where posit is the most accurate.  
+<img src="https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/distribution.png" alt="Accuracy distribution of various data format" width="500">
 
 As an example, the figure below shows the weight distribution of the first layer of GPT2 model. As we can see, the center bin of the distribution is at 2^(-2.72). To benefit the most from posit arithmetic, we can shift this distribution (in log 2 scale) to the right where the distribution is centered around 1 (where posit is the most accurate), as shown in the following figure.  
-![Weight Distribution of GPT2](https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/distribution.png)
+
+<img src="https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/embed0.png" alt="Distribution of the first layer in GPT2 model" width="500">
+<img src="https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/embed1.png" alt="Distribution of the first layer in GPT2 model after adaptive scaling" width="500">
+
 
 ---
 
