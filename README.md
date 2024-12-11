@@ -30,7 +30,9 @@ Here are the jupyter notebooks we used to benchmark three models with layer-wise
 
 While the detailed implementation of these posit quantization methods can be found in the original Qtorch paper, the same quantization method is applied in all three benchmarks - The weight and the activation of each layer for the selected model is quantized to posit arithmetic using a predefined quantization function from the qtorch_plus library: `posit_quantize()`. The function allows you to choose the total bitwidth (`nsize`), exponent bitwidth (`es`) and the scaling factor (`scale`) for the quantization process. In each of the three benchmark notebooks, there is a step where the program iterates through all the linear layers of the selected ML model to quantize the weights and the activation using the defined `linear_weight` and `register_forward_prehook` functions.  
 
+<img src="https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/code.png" width="500">
 This is where we made our changes to apply layer-wise adaptive scaling to the weights during posit quantization. To take GPT2 as an example, below is the revised version of the code where we first find the center bin of the weight distribution for each layer (`x_with_max_frequency`) and apply this scaling factor (2^(-x_with_max_frequency)) in the posit quantization process.  
+<img src="https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/code2.png" alt="Adaptive scaling in the code" width="500">
 
 ---
 
@@ -38,11 +40,14 @@ This is where we made our changes to apply layer-wise adaptive scaling to the we
 
 ### GPT2 (Generative Pre-trained Transformer 2)  
 GPT2 is a large language model by OpenAI that generates coherent text by predicting the next word in a sequence. The Wikitext dataset is used for evaluating the perplexity of the quantized model, and the detailed perplexity result among various data types can be found in the table below. As shown in the table, even without adaptive scaling, posit(8,1) is already able to outperform 8-bit floating point in terms of accuracy. Then with the layer-wise adaptive scaling, the perplexity of the quantized model increases for each posit configuration. The improvement is more significant in certain configurations with a narrow accuracy distribution such as posit(6,0) due to that the scaling can help a lot to align the data to where this narrow posit configuration serves the best accuracy.  
+<img src="https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/gpt.png" width="500">
 
 ### YOLO (You Only Look Once)  
 YOLOv5s is a deep neural network model used for real-time object detection. It is widely recognized in computer vision for its speed and efficiency, allowing it to detect objects in images or videos while predicting their class and location. We chose the v5s model, which has a size of 14MB, making it suitable for edge computing devices. Generally speaking, as the model size increases, the latency for processing each image also increases, but the average precision (AP) on Common Objects in Context (COCO) improves as well. YOLOv5s is a compact and efficient model designed specifically for speed and low resource consumption. It consists of 213 layers and approximately 7.2 million parameters. Although the model is small, it achieves a good balance between accuracy and speed in many real-world object detection tasks. With a computational complexity of only 16.4 GFLOPs, it is highly suitable for edge computing and real-time applications.  
+<img src="https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/yolo.png" width="500">
 
 In the project, we determined the confidence value by comparing the results of running YOLOv5s with those of the larger YOLOv5x model and 32-bit floating-point computations. This value directly represents the model's accuracy. Additionally, we compared the results of processing a single image under different quantization schemes within the project. The model uses 16-bit floating-point precision, which we quantized into two different Posit schemes: 8-bit and 6-bit. By manually adjusting the scaling scheme and employing adaptive scaling, the algorithm automatically determined the optimal scale value, which improved the results and refined the conclusions.  
+<img src="https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/bert.png" width="500">
 
 ### ALBERT (A Little BERT)  
 ALBERT is a smaller, faster version of BERT that reduces model size and improves efficiency by sharing parameters across layers and using optimized embedding techniques. The task we implement to evaluate quantization performance of ALBERT is answering arbitrary questions according to given context. The result is valued as F1 score, which measures overlap between the predicted and ground-truth answers.  
