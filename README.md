@@ -28,6 +28,7 @@ Posit is a dynamic numerical representation that provides better accuracy near 1
 
 ### Weight Distribution Example  
 The weight distribution of GPT2's first layer demonstrates the effectiveness of adaptive scaling. The distribution, centered at 2^(-2.72), is shifted to center around 1 for optimal posit accuracy. This method reduces quantization error, as shown in the quantization error distributions.
+![Weight Distribution of GPT2](https://github.com/hplp/ai-hardware-project-posittune/blob/main/imgs/distribution.png)
 
 ---
 
