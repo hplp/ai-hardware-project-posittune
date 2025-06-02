@@ -52,30 +52,75 @@ def forward_pre_hook_linear(m, input):
 
 #     return best_sqnr, best_scale, best_log2_scale, best_es, max_val
 
-def find_best_sqnr(weights, nsize):
+def compare_rms_and_sweep(weights, nsize):
     signal_power = torch.sum(weights ** 2)
     epsilon = 1e-8
 
-    best_sqnr = -float("inf")
-    best_scale = None
-    best_log2_scale = None
-    best_es = None
+    # ---------------- RMS Method ----------------
+    w_np = weights.detach().cpu().numpy().flatten()
+    abs_w = np.abs(w_np) + epsilon
+    log2_abs = np.log2(abs_w)
+    log2_energy = 2 * log2_abs
+    energy = w_np ** 2
 
+    mean_log2_energy = np.sum(log2_energy * energy) / (np.sum(energy) + epsilon)
+    mean_log2_abs = mean_log2_energy / 2
+    floored_log2 = int(np.floor(mean_log2_abs))
+    rms_scale = 2 ** (-floored_log2)
+
+    best_sqnr_rms = -float("inf")
+    best_es_rms = None
+    for es_candidate in [0, 1]:
+        w_scaled = weights * rms_scale
+        quantized = posit_quantize(w_scaled, nsize=nsize, es=es_candidate, scale=1.0)
+        quantized_rescaled = quantized / rms_scale
+        noise_power = torch.sum((weights - quantized_rescaled) ** 2) + epsilon
+        sqnr = 10 * torch.log10(signal_power / noise_power)
+        if sqnr > best_sqnr_rms:
+            best_sqnr_rms = sqnr
+            best_es_rms = es_candidate
+
+    # ---------------- Sweep Method ----------------
+    log2_scales = np.arange(-5, 6)
+    sweep_scales = [2.0 ** x for x in log2_scales]
+    max_val = weights.abs().max()
+    norm_weights = weights / (max_val + epsilon)
+
+    best_sqnr_sweep = -float("inf")
+    best_scale_sweep = None
+    best_log2_sweep = None
+    best_es_sweep = None
     for es_candidate in [0, 1]:
         for i, scale in enumerate(sweep_scales):
-            quantized = posit_quantize(weights * scale, nsize=nsize, es=es_candidate, scale=1.0)
-            quantized_rescaled = quantized / scale
+            quantized = posit_quantize(norm_weights, nsize=nsize, es=es_candidate, scale=scale)
+            quantized_rescaled = quantized * max_val
             noise_power = torch.sum((weights - quantized_rescaled) ** 2) + epsilon
             sqnr = 10 * torch.log10(signal_power / noise_power)
-            if sqnr > best_sqnr:
-                best_sqnr = sqnr
-                best_scale = scale
-                best_log2_scale = log2_scales[i]
-                best_es = es_candidate
+            if sqnr > best_sqnr_sweep:
+                best_sqnr_sweep = sqnr
+                best_scale_sweep = scale
+                best_log2_sweep = log2_scales[i]
+                best_es_sweep = es_candidate
 
-    return best_sqnr, best_scale, best_log2_scale, best_es
+    # ---------------- Print Comparison ----------------
+    print(f"  RMS   → SQNR = {best_sqnr_rms:.2f} dB, scale = 2^(-{floored_log2}), es = {best_es_rms}")
+    print(f"  Sweep → SQNR = {best_sqnr_sweep:.2f} dB, scale = 2^{best_log2_sweep}, es = {best_es_sweep}")
 
-    
+    return {
+        "rms": {
+            "sqnr": best_sqnr_rms,
+            "scale": rms_scale,
+            "log2_scale": -floored_log2,
+            "es": best_es_rms
+        },
+        "sweep": {
+            "sqnr": best_sqnr_sweep,
+            "scale": best_scale_sweep,
+            "log2_scale": best_log2_sweep,
+            "es": best_es_sweep
+        }
+    }
+
 
 
 layer_count = 0
@@ -87,37 +132,57 @@ for name, module in model.named_modules():
         print(f"Processing layer: {name}")
         weights = module.weight.data.detach().float().cpu()
 
-        sqnr, scale, log2_scale, best_es = find_best_sqnr(weights, base_nsize)
+        # sqnr, scale, log2_scale, best_es, max_val = find_best_sqnr(weights, base_nsize)
+        results = compare_rms_and_sweep(weights, base_nsize)
+
         final_nsize = base_nsize
         # if sqnr < sqnr_threshold:
         #     print(f"  SQNR = {sqnr:.2f} < {sqnr_threshold} dB → using nsize = {base_nsize + 1}")
         #     final_nsize = base_nsize + 1
         #     sqnr, scale, log2_scale, max_val = find_best_sqnr(weights, final_nsize)
-        while sqnr < sqnr_threshold:
-            final_nsize += 1
-            sqnr, scale, log2_scale, best_es = find_best_sqnr(weights, final_nsize)
-        print(f"  Final SQNR = {sqnr:.2f} dB, log2(scale) = {log2_scale}, nsize = {final_nsize}, es = {best_es}")
+        # while sqnr < sqnr_threshold:
+            # final_nsize += 1
+            # sqnr, scale, log2_scale, best_es, max_val = find_best_sqnr(weights, final_nsize)
+            # results = compare_rms_and_sweep(weights, base_nsize)
+        # print(f"  Final SQNR = {sqnr:.2f} dB, log2(scale) = {log2_scale}, nsize = {final_nsize}, es = {best_es}")
 
 
-        # norm_weights = weights / (max_val + epsilon)
-        quantized = posit_quantize(weights, nsize=final_nsize, es=best_es, scale=scale)
-        module.weight.data = (quantized).to(module.weight.data.device)
+        norm_weights = weights / (max_val + epsilon)
+        quantized = posit_quantize(norm_weights, nsize=final_nsize, es=best_es, scale=scale)
+        module.weight.data = (quantized * max_val).to(module.weight.data.device)
         module.register_forward_pre_hook(forward_pre_hook_linear)
-    elif isinstance(module, nn.Embedding):
-        print(f"Processing embedding layer: {name}")
-        weights = module.weight.data.detach().float().cpu()
 
-        final_nsize = base_nsize
-        sqnr, scale, log2_scale, best_es = find_best_sqnr(weights, final_nsize)
-        while sqnr < sqnr_threshold:
-            final_nsize += 1
-            sqnr, scale, log2_scale, best_es = find_best_sqnr(weights, final_nsize)
+        # if isinstance(module, modeling_utils.Conv1D):
+        #     op_count += module.weight.shape[0] * module.weight.shape[1]
+        # else:
+        #     op_count += module.in_features * module.out_features
 
-        # norm_weights = weights / (max_val + epsilon)
-        quantized = posit_quantize(weights, nsize=final_nsize, es=best_es, scale=scale)
-        module.weight.data = (quantized).to(module.weight.data.device)
+    # elif isinstance(module, nn.Embedding):
+    #     print(f"Processing embedding layer: {name}")
+    #     weights = module.weight.data.detach().float().cpu()
+    #     sqnr, scale, log2_scale, max_val = find_best_sqnr(weights, base_nsize)
+    #     norm_weights = weights / (max_val + epsilon)
+    #     while sqnr < sqnr_threshold:
+    #         final_nsize = base_nsize + 1
+    #         sqnr, scale, log2_scale, max_val = find_best_sqnr(weights, final_nsize)
+    #     quantized = posit_quantize(norm_weights, nsize=final_nsize, es=es, scale=scale)
+    #     module.weight.data = (quantized * max_val).to(module.weight.data.device)
+    #     print(f"  Embedding SQNR = {sqnr:.2f} dB, log2(scale) = {log2_scale}, nsize = {final_nsize}")
+    # elif isinstance(module, nn.Embedding):
+    #     print(f"Processing embedding layer: {name}")
+    #     weights = module.weight.data.detach().float().cpu()
 
-        print(f"  Embedding SQNR = {sqnr:.2f} dB, log2(scale) = {log2_scale}, nsize = {final_nsize}, es = {best_es}")
+    #     final_nsize = base_nsize
+    #     sqnr, scale, log2_scale, best_es, max_val = find_best_sqnr(weights, final_nsize)
+    #     while sqnr < sqnr_threshold:
+    #         final_nsize += 1
+    #         sqnr, scale, log2_scale, best_es, max_val = find_best_sqnr(weights, final_nsize)
+
+    #     norm_weights = weights / (max_val + epsilon)
+    #     quantized = posit_quantize(norm_weights, nsize=final_nsize, es=best_es, scale=scale)
+    #     module.weight.data = (quantized * max_val).to(module.weight.data.device)
+
+    #     print(f"  Embedding SQNR = {sqnr:.2f} dB, log2(scale) = {log2_scale}, nsize = {final_nsize}, es = {best_es}")
 
 
 print("Total layers processed:", layer_count)
