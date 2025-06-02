@@ -15,10 +15,10 @@ model_id = 'gpt2-large'
 model = GPT2LMHeadModel.from_pretrained(model_id).to(device)
 tokenizer = GPT2TokenizerFast.from_pretrained(model_id)
 
-base_nsize = 4
+base_nsize = 3
 es = 0
 epsilon = 1e-8
-log2_scales = np.arange(-10, 10)
+log2_scales = np.arange(-5,5)
 sweep_scales = [2.0 ** x for x in log2_scales]
 sqnr_threshold = 15.0
 
@@ -32,42 +32,66 @@ def forward_pre_hook_linear(m, input):
 #     signal_power = torch.sum(weights ** 2)
 #     max_val = weights.abs().max()
 #     norm_weights = weights / (max_val + epsilon)
+    
 #     best_sqnr = -float("inf")
 #     best_scale = None
 #     best_log2_scale = None
-#     for i, scale in enumerate(sweep_scales):
-#         quantized = posit_quantize(norm_weights, nsize=nsize, es=es, scale=scale)
-#         quantized_rescaled = quantized * max_val
-#         noise_power = torch.sum((weights - quantized_rescaled) ** 2) + epsilon
-#         sqnr = 10 * torch.log10(signal_power / noise_power)
-#         if sqnr > best_sqnr:
-#             best_sqnr = sqnr
-#             best_scale = scale
-#             best_log2_scale = log2_scales[i]
-#     return best_sqnr, best_scale, best_log2_scale, max_val
-def find_best_sqnr(weights, nsize):
+#     best_es = None
+
+#     for es_candidate in [0, 1]:
+#         for i, scale in enumerate(sweep_scales):
+#             quantized = posit_quantize(norm_weights, nsize=nsize, es=es_candidate, scale=scale)
+#             quantized_rescaled = quantized * max_val
+#             noise_power = torch.sum((weights - quantized_rescaled) ** 2) + epsilon
+#             sqnr = 10 * torch.log10(signal_power / noise_power)
+#             if sqnr > best_sqnr:
+#                 best_sqnr = sqnr
+#                 best_scale = scale
+#                 best_log2_scale = log2_scales[i]
+#                 best_es = es_candidate
+
+#     return best_sqnr, best_scale, best_log2_scale, best_es, max_val
+
+def find_best_sqnr(weights, nsize, mode='sweep'):
     signal_power = torch.sum(weights ** 2)
-    max_val = weights.abs().max()
-    norm_weights = weights / (max_val + epsilon)
-    
     best_sqnr = -float("inf")
     best_scale = None
     best_log2_scale = None
     best_es = None
 
-    for es_candidate in [0, 1]:
-        for i, scale in enumerate(sweep_scales):
-            quantized = posit_quantize(norm_weights, nsize=nsize, es=es_candidate, scale=scale)
-            quantized_rescaled = quantized * max_val
+    if mode == 'rms':
+        rms = torch.sqrt(torch.mean(weights ** 2))
+        for es_candidate in [0, 1]:
+            scale = 1.0 / (rms + epsilon)
+            norm_weights = weights * scale
+            quantized = posit_quantize(norm_weights, nsize=nsize, es=es_candidate, scale=1.0)
+            quantized_rescaled = quantized / scale
             noise_power = torch.sum((weights - quantized_rescaled) ** 2) + epsilon
             sqnr = 10 * torch.log10(signal_power / noise_power)
             if sqnr > best_sqnr:
                 best_sqnr = sqnr
                 best_scale = scale
-                best_log2_scale = log2_scales[i]
+                best_log2_scale = np.log2(scale.item())
                 best_es = es_candidate
+        return best_sqnr, best_scale, best_log2_scale, best_es, 1.0  # already scaled, so max_val is 1
 
-    return best_sqnr, best_scale, best_log2_scale, best_es, max_val
+    else:
+        max_val = weights.abs().max()
+        norm_weights = weights / (max_val + epsilon)
+        for es_candidate in [0, 1]:
+            for i, scale in enumerate(sweep_scales):
+                quantized = posit_quantize(norm_weights, nsize=nsize, es=es_candidate, scale=scale)
+                quantized_rescaled = quantized * max_val
+                noise_power = torch.sum((weights - quantized_rescaled) ** 2) + epsilon
+                sqnr = 10 * torch.log10(signal_power / noise_power)
+                if sqnr > best_sqnr:
+                    best_sqnr = sqnr
+                    best_scale = scale
+                    best_log2_scale = log2_scales[i]
+                    best_es = es_candidate
+        return best_sqnr, best_scale, best_log2_scale, best_es, max_val
+
+    
 
 
 layer_count = 0
