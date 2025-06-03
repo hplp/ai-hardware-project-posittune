@@ -1,0 +1,1031 @@
+{
+  "transformer.wte": {
+    "sqnr": 16.476511001586914,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.wpe": {
+    "sqnr": 18.019250869750977,
+    "scale": 8.0,
+    "log2_scale": 3,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.0.attn.c_attn": {
+    "sqnr": 15.664311408996582,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.0.attn.c_proj": {
+    "sqnr": 19.774560928344727,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.0.mlp.c_fc": {
+    "sqnr": 16.366622924804688,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.0.mlp.c_proj": {
+    "sqnr": 19.039913177490234,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.1.attn.c_attn": {
+    "sqnr": 15.715161323547363,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.1.attn.c_proj": {
+    "sqnr": 18.009031295776367,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.1.mlp.c_fc": {
+    "sqnr": 16.542442321777344,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.1.mlp.c_proj": {
+    "sqnr": 18.36591911315918,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.2.attn.c_attn": {
+    "sqnr": 15.433219909667969,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.2.attn.c_proj": {
+    "sqnr": 17.966787338256836,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.2.mlp.c_fc": {
+    "sqnr": 16.54496192932129,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.2.mlp.c_proj": {
+    "sqnr": 19.784467697143555,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.3.attn.c_attn": {
+    "sqnr": 15.297259330749512,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.3.attn.c_proj": {
+    "sqnr": 18.97426414489746,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.3.mlp.c_fc": {
+    "sqnr": 16.504592895507812,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.3.mlp.c_proj": {
+    "sqnr": 15.030826568603516,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.4.attn.c_attn": {
+    "sqnr": 15.418168067932129,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.4.attn.c_proj": {
+    "sqnr": 21.25054168701172,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.4.mlp.c_fc": {
+    "sqnr": 16.489627838134766,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.4.mlp.c_proj": {
+    "sqnr": 15.358675003051758,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.5.attn.c_attn": {
+    "sqnr": 15.611590385437012,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.5.attn.c_proj": {
+    "sqnr": 21.223350524902344,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.5.mlp.c_fc": {
+    "sqnr": 16.500871658325195,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.5.mlp.c_proj": {
+    "sqnr": 15.40993595123291,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.6.attn.c_attn": {
+    "sqnr": 15.788961410522461,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.6.attn.c_proj": {
+    "sqnr": 21.308374404907227,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.6.mlp.c_fc": {
+    "sqnr": 16.45428466796875,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.6.mlp.c_proj": {
+    "sqnr": 15.230656623840332,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.7.attn.c_attn": {
+    "sqnr": 15.823738098144531,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.7.attn.c_proj": {
+    "sqnr": 21.44645881652832,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.7.mlp.c_fc": {
+    "sqnr": 16.437057495117188,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.7.mlp.c_proj": {
+    "sqnr": 20.53186798095703,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.8.attn.c_attn": {
+    "sqnr": 15.837082862854004,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.8.attn.c_proj": {
+    "sqnr": 21.462783813476562,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.8.mlp.c_fc": {
+    "sqnr": 16.446687698364258,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.8.mlp.c_proj": {
+    "sqnr": 18.801746368408203,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.9.attn.c_attn": {
+    "sqnr": 16.112503051757812,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.9.attn.c_proj": {
+    "sqnr": 21.64766502380371,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.9.mlp.c_fc": {
+    "sqnr": 16.373363494873047,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.9.mlp.c_proj": {
+    "sqnr": 18.530227661132812,
+    "scale": 8.0,
+    "log2_scale": 3,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.10.attn.c_attn": {
+    "sqnr": 16.205141067504883,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.10.attn.c_proj": {
+    "sqnr": 21.575281143188477,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.10.mlp.c_fc": {
+    "sqnr": 16.385385513305664,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.10.mlp.c_proj": {
+    "sqnr": 19.217926025390625,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.11.attn.c_attn": {
+    "sqnr": 16.35201644897461,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.11.attn.c_proj": {
+    "sqnr": 15.178524017333984,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.11.mlp.c_fc": {
+    "sqnr": 16.438217163085938,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.11.mlp.c_proj": {
+    "sqnr": 20.11514663696289,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.12.attn.c_attn": {
+    "sqnr": 16.253677368164062,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.12.attn.c_proj": {
+    "sqnr": 15.702402114868164,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.12.mlp.c_fc": {
+    "sqnr": 16.451576232910156,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.12.mlp.c_proj": {
+    "sqnr": 20.93646240234375,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.13.attn.c_attn": {
+    "sqnr": 16.322471618652344,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.13.attn.c_proj": {
+    "sqnr": 15.501107215881348,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.13.mlp.c_fc": {
+    "sqnr": 16.431045532226562,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.13.mlp.c_proj": {
+    "sqnr": 15.114241600036621,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.14.attn.c_attn": {
+    "sqnr": 16.17369270324707,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.14.attn.c_proj": {
+    "sqnr": 15.668970108032227,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.14.mlp.c_fc": {
+    "sqnr": 16.452434539794922,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.14.mlp.c_proj": {
+    "sqnr": 15.231346130371094,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.15.attn.c_attn": {
+    "sqnr": 16.343177795410156,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.15.attn.c_proj": {
+    "sqnr": 15.814746856689453,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.15.mlp.c_fc": {
+    "sqnr": 16.40331268310547,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.15.mlp.c_proj": {
+    "sqnr": 15.163010597229004,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.16.attn.c_attn": {
+    "sqnr": 16.200510025024414,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.16.attn.c_proj": {
+    "sqnr": 16.27696418762207,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.16.mlp.c_fc": {
+    "sqnr": 16.40803337097168,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.16.mlp.c_proj": {
+    "sqnr": 15.583148002624512,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.17.attn.c_attn": {
+    "sqnr": 16.36435317993164,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.17.attn.c_proj": {
+    "sqnr": 16.42067527770996,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.17.mlp.c_fc": {
+    "sqnr": 16.397136688232422,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.17.mlp.c_proj": {
+    "sqnr": 15.863044738769531,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.18.attn.c_attn": {
+    "sqnr": 16.408445358276367,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.18.attn.c_proj": {
+    "sqnr": 16.49477195739746,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.18.mlp.c_fc": {
+    "sqnr": 16.401874542236328,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.18.mlp.c_proj": {
+    "sqnr": 15.916473388671875,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.19.attn.c_attn": {
+    "sqnr": 16.372045516967773,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.19.attn.c_proj": {
+    "sqnr": 16.489845275878906,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.19.mlp.c_fc": {
+    "sqnr": 16.41189956665039,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.19.mlp.c_proj": {
+    "sqnr": 16.108814239501953,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.20.attn.c_attn": {
+    "sqnr": 16.46668243408203,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.20.attn.c_proj": {
+    "sqnr": 16.472387313842773,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.20.mlp.c_fc": {
+    "sqnr": 16.429841995239258,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.20.mlp.c_proj": {
+    "sqnr": 16.26124382019043,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.21.attn.c_attn": {
+    "sqnr": 16.43087387084961,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.21.attn.c_proj": {
+    "sqnr": 16.3756103515625,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.21.mlp.c_fc": {
+    "sqnr": 16.440494537353516,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.21.mlp.c_proj": {
+    "sqnr": 16.33853530883789,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.22.attn.c_attn": {
+    "sqnr": 16.408655166625977,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.22.attn.c_proj": {
+    "sqnr": 15.596131324768066,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.22.mlp.c_fc": {
+    "sqnr": 16.45124626159668,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.22.mlp.c_proj": {
+    "sqnr": 16.408231735229492,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.23.attn.c_attn": {
+    "sqnr": 16.489063262939453,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.23.attn.c_proj": {
+    "sqnr": 16.200960159301758,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.23.mlp.c_fc": {
+    "sqnr": 16.46693992614746,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.23.mlp.c_proj": {
+    "sqnr": 16.471797943115234,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.24.attn.c_attn": {
+    "sqnr": 16.552072525024414,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.24.attn.c_proj": {
+    "sqnr": 16.227930068969727,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.24.mlp.c_fc": {
+    "sqnr": 16.475189208984375,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.24.mlp.c_proj": {
+    "sqnr": 16.560951232910156,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.25.attn.c_attn": {
+    "sqnr": 16.617624282836914,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.25.attn.c_proj": {
+    "sqnr": 16.15967559814453,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.25.mlp.c_fc": {
+    "sqnr": 16.484458923339844,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.25.mlp.c_proj": {
+    "sqnr": 16.61649513244629,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.26.attn.c_attn": {
+    "sqnr": 16.57841682434082,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.26.attn.c_proj": {
+    "sqnr": 15.947721481323242,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.26.mlp.c_fc": {
+    "sqnr": 16.48572540283203,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.26.mlp.c_proj": {
+    "sqnr": 16.61617660522461,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.27.attn.c_attn": {
+    "sqnr": 16.59307861328125,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.27.attn.c_proj": {
+    "sqnr": 16.285768508911133,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.27.mlp.c_fc": {
+    "sqnr": 16.49778175354004,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.27.mlp.c_proj": {
+    "sqnr": 16.654949188232422,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.28.attn.c_attn": {
+    "sqnr": 16.622947692871094,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.28.attn.c_proj": {
+    "sqnr": 15.893913269042969,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.28.mlp.c_fc": {
+    "sqnr": 16.51441764831543,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.28.mlp.c_proj": {
+    "sqnr": 16.603012084960938,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.29.attn.c_attn": {
+    "sqnr": 16.68239974975586,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.29.attn.c_proj": {
+    "sqnr": 16.08229637145996,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.29.mlp.c_fc": {
+    "sqnr": 16.52865982055664,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.29.mlp.c_proj": {
+    "sqnr": 16.471904754638672,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.30.attn.c_attn": {
+    "sqnr": 16.634349822998047,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.30.attn.c_proj": {
+    "sqnr": 15.533188819885254,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.30.mlp.c_fc": {
+    "sqnr": 16.54170799255371,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.30.mlp.c_proj": {
+    "sqnr": 16.333486557006836,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.31.attn.c_attn": {
+    "sqnr": 16.685808181762695,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.31.attn.c_proj": {
+    "sqnr": 19.355852127075195,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.31.mlp.c_fc": {
+    "sqnr": 16.550384521484375,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.31.mlp.c_proj": {
+    "sqnr": 15.614167213439941,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.32.attn.c_attn": {
+    "sqnr": 16.612714767456055,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.32.attn.c_proj": {
+    "sqnr": 18.549421310424805,
+    "scale": 8.0,
+    "log2_scale": 3,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.32.mlp.c_fc": {
+    "sqnr": 16.596147537231445,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.32.mlp.c_proj": {
+    "sqnr": 19.577781677246094,
+    "scale": 8.0,
+    "log2_scale": 3,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.33.attn.c_attn": {
+    "sqnr": 16.685274124145508,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.33.attn.c_proj": {
+    "sqnr": 17.057300567626953,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.33.mlp.c_fc": {
+    "sqnr": 16.652427673339844,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.33.mlp.c_proj": {
+    "sqnr": 18.73297691345215,
+    "scale": 8.0,
+    "log2_scale": 3,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.34.attn.c_attn": {
+    "sqnr": 16.405010223388672,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.34.attn.c_proj": {
+    "sqnr": 17.9381103515625,
+    "scale": 8.0,
+    "log2_scale": 3,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.34.mlp.c_fc": {
+    "sqnr": 16.673004150390625,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.34.mlp.c_proj": {
+    "sqnr": 18.87537384033203,
+    "scale": 8.0,
+    "log2_scale": 3,
+    "nsize": 5,
+    "es": 0
+  },
+  "transformer.h.35.attn.c_attn": {
+    "sqnr": 15.805545806884766,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.35.attn.c_proj": {
+    "sqnr": 18.1560001373291,
+    "scale": 8.0,
+    "log2_scale": 3,
+    "nsize": 5,
+    "es": 1
+  },
+  "transformer.h.35.mlp.c_fc": {
+    "sqnr": 16.68720054626465,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  },
+  "transformer.h.35.mlp.c_proj": {
+    "sqnr": 19.951196670532227,
+    "scale": 8.0,
+    "log2_scale": 3,
+    "nsize": 5,
+    "es": 0
+  },
+  "lm_head": {
+    "sqnr": 133.1896514892578,
+    "scale": 16.0,
+    "log2_scale": 4,
+    "nsize": 4,
+    "es": 0
+  }
+}
