@@ -82,7 +82,6 @@ def find_best_sqnr(weights, nsize):
 
 layer_count = 0
 op_count = 0
-
 for name, module in model.named_modules():
     if isinstance(module, (nn.Conv2d, nn.Linear, modeling_utils.Conv1D)):
         layer_count += 1
@@ -91,20 +90,23 @@ for name, module in model.named_modules():
 
         sqnr, scale, log2_scale, best_es = find_best_sqnr(weights, base_nsize)
         final_nsize = base_nsize
-        # if sqnr < sqnr_threshold:
-        #     print(f"  SQNR = {sqnr:.2f} < {sqnr_threshold} dB → using nsize = {base_nsize + 1}")
-        #     final_nsize = base_nsize + 1
-        #     sqnr, scale, log2_scale, max_val = find_best_sqnr(weights, final_nsize)
         while sqnr < sqnr_threshold:
             final_nsize += 1
             sqnr, scale, log2_scale, best_es = find_best_sqnr(weights, final_nsize)
         print(f"  Final SQNR = {sqnr:.2f} dB, log2(scale) = {log2_scale}, nsize = {final_nsize}, es = {best_es}")
 
+        quantization_log[name] = {
+            "sqnr": float(sqnr),
+            "scale": float(scale),
+            "log2_scale": int(log2_scale),
+            "nsize": final_nsize,
+            "es": best_es
+        }
 
-        # norm_weights = weights / (max_val + epsilon)
         quantized = posit_quantize(weights, nsize=final_nsize, es=best_es, scale=scale)
-        module.weight.data = (quantized).to(module.weight.data.device)
+        module.weight.data = quantized.to(module.weight.data.device)
         module.register_forward_pre_hook(forward_pre_hook_linear)
+
     elif isinstance(module, nn.Embedding):
         print(f"Processing embedding layer: {name}")
         weights = module.weight.data.detach().float().cpu()
@@ -115,12 +117,18 @@ for name, module in model.named_modules():
             final_nsize += 1
             sqnr, scale, log2_scale, best_es = find_best_sqnr(weights, final_nsize)
 
-        # norm_weights = weights / (max_val + epsilon)
+        quantization_log[name] = {
+            "sqnr": float(sqnr),
+            "scale": float(scale),
+            "log2_scale": int(log2_scale),
+            "nsize": final_nsize,
+            "es": best_es
+        }
+
         quantized = posit_quantize(weights, nsize=final_nsize, es=best_es, scale=scale)
-        module.weight.data = (quantized).to(module.weight.data.device)
+        module.weight.data = quantized.to(module.weight.data.device)
 
         print(f"  Embedding SQNR = {sqnr:.2f} dB, log2(scale) = {log2_scale}, nsize = {final_nsize}, es = {best_es}")
-
 
 print("Total layers processed:", layer_count)
 print("MAC operation count:", op_count)
@@ -171,6 +179,9 @@ if lls:
 else:
     print("No log likelihoods calculated.")
 
+import json
+with open("posit_quantization_log.json", "w") as f:
+    json.dump(quantization_log, f, indent=2)
 
 # result: Generated text after Posit quantization:
 
